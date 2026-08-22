@@ -253,7 +253,7 @@ const WISHES = [
 {
   day: 17,
   title: "Something Different Todaay ♡",
-  message: "Justa reminder: I look at you and see the rest of my life..",
+  message: "Just a reminder: I look at you and see the rest of my life..",
   type: "link",
   link: "https://littlevoicenote.com/m/af950fcb"
 },
@@ -530,7 +530,20 @@ function openWish(index){
       </div>
     `;
   }
-
+if(wish.type === "link" && wish.link){
+  mediaHTML = `
+    <div style="margin-top:25px;text-align:center;">
+      <a
+        href="${wish.link}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn"
+        style="display:inline-block;text-decoration:none;">
+        ♡ open your little surprise
+      </a>
+    </div>
+  `;
+}
   if(
     (wish.type === "image" && !wish.image) ||
     (wish.type === "video" && !wish.video) ||
