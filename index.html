@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 little things ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Sacramento&display=swap');
+
+:root{
+  --ink:#382c42; --muted:#766879; --glass:rgba(255,255,255,.48);
+  --border:rgba(255,255,255,.72); --deep:#49374f;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:"DM Sans",sans-serif;
+  background:linear-gradient(135deg,#ffdce8 0%,#e9ddff 38%,#dcecff 68%,#fff0d5 100%);
+  background-attachment:fixed;min-height:100vh;overflow-x:hidden
+}
+body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(70px);opacity:.4;z-index:-1}
+body:before{width:360px;height:360px;background:#ffb9d2;top:-100px;left:-100px}
+body:after{width:420px;height:420px;background:#c8b6ff;right:-130px;bottom:-130px}
+.container{width:min(1080px,92%);margin:auto}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:60px 0;position:relative}
+.kicker,.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#806f84}
+h1{font-family:"Sacramento",cursive;font-size:clamp(4rem,12vw,8rem);font-weight:400;line-height:.82;margin:18px 0 12px}
+.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:1.04rem;line-height:1.75}
+.countdown{display:flex;justify-content:center;gap:10px;margin:34px auto 28px;flex-wrap:wrap}
+.time{min-width:82px;padding:14px 15px;border:1px solid var(--border);border-radius:20px;background:var(--glass);backdrop-filter:blur(14px);box-shadow:0 14px 38px rgba(72,48,83,.08)}
+.time b{display:block;font:600 2.35rem "Cormorant Garamond",serif}.time span{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.btn{border:0;background:var(--deep);color:white;padding:14px 23px;border-radius:999px;font:600 .82rem "DM Sans";cursor:pointer;box-shadow:0 10px 25px rgba(56,44,66,.18);transition:.25s}
+.btn:hover{transform:translateY(-2px)}.ghost{background:rgba(255,255,255,.5);color:var(--ink);border:1px solid var(--border)}
+.floating{position:absolute;inset:0;pointer-events:none;overflow:hidden}.float{position:absolute;opacity:.55;animation:drift 8s ease-in-out infinite}
+@keyframes drift{50%{transform:translateY(-24px) rotate(8deg);opacity:.9}}
+.section{padding:95px 0}.section-head{text-align:center;margin-bottom:38px}
+h2{font:600 clamp(2.8rem,6vw,4.5rem)/.95 "Cormorant Garamond",serif;margin:10px 0}
+.section-head p{color:var(--muted);line-height:1.6}
+.progress{height:8px;max-width:620px;margin:22px auto;background:rgba(255,255,255,.42);border-radius:99px;overflow:hidden}
+.progress div{height:100%;width:0;background:var(--deep);transition:width .8s}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
+.card{min-height:245px;padding:25px;border:1px solid var(--border);border-radius:27px;background:var(--glass);backdrop-filter:blur(15px);box-shadow:0 16px 40px rgba(70,45,80,.08);display:flex;flex-direction:column;justify-content:space-between;transition:.3s}
+.card:hover{transform:translateY(-5px)}.card.locked{opacity:.6;filter:blur(3px) saturate(.55);user-select:none;transition:filter .3s ease,opacity .3s ease}
+.day{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#8b758e}
+.card h3{font:600 1.8rem/1 "Cormorant Garamond",serif;margin:10px 0}.card p{font-size:.87rem;color:var(--muted);line-height:1.55}
+.open{align-self:flex-start;border:1px solid rgba(255,255,255,.8);background:rgba(255,255,255,.58);border-radius:999px;padding:9px 14px;color:var(--ink);font-weight:600;cursor:pointer}
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 15;
+    border: 1px solid rgba(255,255,255,.7);
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #382c42;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(56,44,66,.12);
+    font-size: .82rem;
+}
+.final{padding:120px 0 160px;text-align:center}.locked-final {
+    opacity: 0.6;
+    filter: blur(5px) saturate(0.5);
+    user-select: none;
+    transition: filter 0.8s ease, opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.locked-final.unlocked {
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+}
+.birthday{font:400 clamp(4.5rem,13vw,9rem)/.75 "Sacramento",cursive;margin:18px 0}
+.final-box{max-width:760px;margin:30px auto;padding:38px;border:1px solid var(--border);border-radius:32px;background:rgba(255,255,255,.46);backdrop-filter:blur(15px);box-shadow:0 20px 55px rgba(70,45,80,.1)}
+.final-box p{color:var(--muted);line-height:1.85}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+footer{text-align:center;padding:25px;color:#8a788d;font-size:.75rem}
+.modal{position:fixed;inset:0;background:rgba(44,31,52,.35);backdrop-filter:blur(10px);display:none;place-items:center;padding:20px;z-index:20}.modal.show{display:grid}
+.modal-inner{width:min(700px,100%);max-height:90vh;overflow:auto;background:#fff8fc;border-radius:30px;padding:34px;box-shadow:0 25px 80px rgba(36,20,45,.25);position:relative}
+.close{position:absolute;right:18px;top:15px;border:0;background:transparent;font-size:1.5rem;cursor:pointer}.modal-inner h2{font-size:2.8rem}
+.modal-inner p{line-height:1.8;color:#6f6274}.media{margin-top:20px;border-radius:20px;overflow:hidden;background:#f2e6ee}.media img,
+.media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}.media audio{width:100%;display:block;padding:14px}
+.note{background:#f7edf3;border-radius:18px;padding:18px;margin-top:18px;color:#6f6274;line-height:1.6}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:30}.piece{position:absolute;width:8px;height:14px;animation:fall 2.8s linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(700deg);opacity:0}}
+@media(max-width:600px){.section{padding:72px 0}.time{min-width:68px;padding:11px 8px}.time b{font-size:1.9rem}.card{min-height:215px}}
+</style>
+</head>
+<body>
+  <audio id="backgroundMusic" loop>
+    <source src="media/bg_music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" class="music-button">
+    ♫ Music: OFF
+</button>
+
+<div class="floating" id="floating"></div>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">a tiny universe made just for you</div>
+    <h1 id="heroTitle">21 little things ♡</h1>
+    <p id="heroSubtitle"></p>
+
+    <div class="countdown">
+      <div class="time"><b id="days">00</b><span>days</span></div>
+      <div class="time"><b id="hours">00</b><span>hours</span></div>
+      <div class="time"><b id="mins">00</b><span>minutes</span></div>
+      <div class="time"><b id="secs">00</b><span>seconds</span></div>
+    </div>
+
+    <button class="btn" onclick="document.querySelector('#wishes').scrollIntoView()">♡ open the countdown</button>
+  </div>
+</section>
+
+<section class="section" id="wishes">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">the countdown</div>
+      <h2>one little thing, every day</h2>
+      <p id="unlockText"></p>
+      <div class="progress"><div id="bar"></div></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="final locked-final" id="final">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">september 8 · the big day</div>
+      <div class="birthday">Happy 21st ♡</div>
+      <p>For the boy who deserves an entire universe of good things.</p>
+    </div>
+
+    <div class="final-box">
+      <h2 style="font-size:2.7rem">To my favourite person,</h2>
+      <p id="finalLetter"></p>
+      <div class="actions">
+        <button class="btn" onclick="openFinalMedia('video')">🎥 birthday video</button>
+        <button class="btn ghost" onclick="openFinalMedia('audio')">🎧 birthday audio</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>made with too much love ♡</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+<div class="confetti" id="confetti"></div>
+
+<script>
+/* =========================================================
+   ♡♡♡ EDIT ONLY THIS SECTION ♡♡♡
+   ========================================================= */
+
+const SITE = {
+  boyfriendName: "my love",
+
+  // His birthday: September 8, 2026
+ birthday: "2026-09-08",
+
+  finalLetter: `
+    If you're reading this on September 8, then you finally made it to 21. ♡
+
+    I hope this little website reminds you of something very simple:
+    you are soo, so loved and will forever be loved by me till the last breath 
+    I take.
+
+    Thank you for being you, for all the memories we've already made,
+    and for the one that awaits for us.
+
+    Happy 21st birthday, my love.
+  `,
+
+  // Put your final birthday files inside the "media" folder.
+  finalVideo: "media/birthday-video.mp4",
+  finalAudio: "media/birthday-audio.mp3"
+};
+
+
+/*
+   Each object below = ONE DAY.
+
+   IMPORTANT:
+   TODAY (August 20) = Day 19.
+   So the website has Day 19 at the top.
+
+   "type" can be:
+      text
+      image
+      video
+      audio
+
+   For image/video/audio, put your file in /media
+   and write its filename here.
+
+   Examples:
+      image: "media/day19.jpg"
+      video: "media/day18.mp4"
+      audio: "media/day17.mp3"
+*/
+
+const WISHES = [
+
+  {
+    day: 21,
+    title: "The very beginning ♡",
+    message: "21 days before your 21st birthday, and here's 21 little pieces of my heart.",
+    type: "image",
+    image: "media/media_day21.png"
+  },
+
+  {
+    day: 20,
+    title: "For the boy turning 21 ♡",
+    message: "20 days to go. And somehow, I already have so many things I want to tell you. Few that you're already aware of, and a few that you should know.",
+    type: "image",
+    image: "media/media_day20.png"
+  },
+
+  {
+    day: 19,
+    title: "The beginning ♡",
+    message: "19 days before your 21st birthday, I wanted to start with the simplest truth: I'm really, really glad you exist.",
+    type: "image",
+    image: "media/media_day19.png"
+  },
+
+  {
+    day: 18,
+    title: "Memories ♡",
+    message: "You're the most important being to me in this entire world.",
+    type: "image",
+    image: "media/media_day18.png"
+    
+  },
+
+  {
+    day: 17,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 16,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 15,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 14,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 13,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 12,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 11,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 10,
+    title: "Locked",
+
+  },
+
+  {
+    day: 9,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 8,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 7,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 6,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 5,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 4,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 3,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 2,
+    title: "Locked",
+   
+  },
+
+  {
+    day: 1,
+    title: "Locked",
+    
+  },
+
+  {
+    day: 0,
+    title: "Locked",
+   
+  },
+
+
+
+];
+
+/* =========================================================
+   YOU DON'T NEED TO EDIT BELOW THIS LINE
+   ========================================================= */
+
+  function birthdayDate(){
+  return new Date(2026, 8, 8, 0, 0, 0);
+}
+
+
+function daysLeft(){
+  const diff = birthdayDate() - new Date();
+  return Math.max(0, Math.ceil(diff / 86400000));
+}
+
+function currentDayNumber(){
+  const left = daysLeft();
+
+  // On Aug 20 with a Sep 8 birthday this returns 19.
+  // On Sep 7 it returns 1.
+  // On Sep 8 it returns 0.
+  return left;
+}
+
+function isUnlocked(day){
+  const left = currentDayNumber();
+
+  // Day 19 opens when 19 days remain,
+  // Day 18 opens when 18 days remain, etc.
+  return day >= left;
+}
+
+function renderWishes(){
+  const left = currentDayNumber();
+
+  let unlocked = 0;
+
+  document.getElementById("grid").innerHTML = WISHES.map((wish,index)=>{
+
+    const open = isUnlocked(wish.day);
+
+    if(open && wish.day >= 1 && wish.day <= 19) unlocked++;
+
+    const status = open ? "♡" : "🔒";
+
+    return `
+      <article class="card ${open ? "" : "locked"}">
+
+        <div>
+          <div class="day">
+            ${wish.day > 0 ? "DAY " + wish.day : "D-DAY"}
+            <span style="float:right">${status}</span>
+          </div>
+
+          <h3>${wish.title}</h3>
+
+          <p>
+            ${open
+              ? wish.message
+              : "This little piece of my heart is waiting for its day…"}
+          </p>
+        </div>
+
+        <button class="open"
+          onclick="${open ? `openWish(${index})` : "lockedMessage()"}">
+          ${open ? "open ♡" : "not yet"}
+        </button>
+
+      </article>
+    `;
+  }).join("");
+
+  const normalDays = WISHES.filter(w => w.day >= 1 && w.day <= 19).length;
+  document.getElementById("bar").style.width =
+    Math.min(100, unlocked / normalDays * 100) + "%";
+
+  if(left > 0){
+    document.getElementById("unlockText").textContent =
+      `Today is Day ${left}. Come back tomorrow for the next little piece. ♡`;
+  }else{
+    document.getElementById("unlockText").textContent =
+      "It's the big day. Everything is yours now. ♡";
+  }
+}
+
+function updateCountdown(){
+
+  const now = new Date();
+  const target = birthdayDate();
+
+  let diff = target.getTime() - now.getTime();
+
+  // Before September 8
+  if(diff > 0){
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor(diff / 3600000) % 24;
+    const m = Math.floor(diff / 60000) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+
+    document.getElementById("days").textContent =
+      String(d).padStart(2,"0");
+
+    document.getElementById("hours").textContent =
+      String(h).padStart(2,"0");
+
+    document.getElementById("mins").textContent =
+      String(m).padStart(2,"0");
+
+    document.getElementById("secs").textContent =
+      String(s).padStart(2,"0");
+
+  }
+
+  // On/after September 8
+  else {
+
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("mins").textContent = "00";
+    document.getElementById("secs").textContent = "00";
+
+    document.getElementById("heroSubtitle").textContent =
+      `Happy 21st, ${SITE.boyfriendName}. Today is all about you. ♡`;
+
+    document.querySelector(".hero .btn").textContent =
+      "♡ open your birthday";
+
+    launchConfetti();
+  }
+}
+
+function openWish(index){
+
+  const wish = WISHES[index];
+
+  let mediaHTML = "";
+
+  if(wish.type === "image" && wish.image){
+    mediaHTML = `
+      <div class="media">
+        <img src="${wish.image}" alt="${wish.title}">
+      </div>
+    `;
+  }
+
+  if(wish.type === "video" && wish.video){
+    mediaHTML = `
+      <div class="media">
+        <video controls playsinline>
+          <source src="${wish.video}">
+          Your browser doesn't support this video.
+        </video>
+      </div>
+    `;
+  }
+
+  if(wish.type === "audio" && wish.audio){
+    mediaHTML = `
+      <div class="media">
+        <audio controls>
+          <source src="${wish.audio}">
+          Your browser doesn't support this audio.
+        </audio>
+      </div>
+    `;
+  }
+
+  if(
+    (wish.type === "image" && !wish.image) ||
+    (wish.type === "video" && !wish.video) ||
+    (wish.type === "audio" && !wish.audio)
+  ){
+    mediaHTML = `
+      <div class="note">
+        ♡ Add your ${wish.type} here.<br>
+        Put the file inside the <b>media</b> folder and change
+        the filename in the EDIT section.
+      </div>
+    `;
+  }
+
+  document.getElementById("modalContent").innerHTML = `
+    <div class="day">${wish.day > 0 ? "DAY " + wish.day : "D-DAY"}</div>
+    <h2>${wish.title}</h2>
+    <p>${wish.message}</p>
+    ${mediaHTML}
+  `;
+
+  document.getElementById("modal").classList.add("show");
+}
+
+function openFinalMedia(type){
+
+  const file = type === "video"
+    ? SITE.finalVideo
+    : SITE.finalAudio;
+
+  let html = `
+    <div class="day">SEPTEMBER 8 · 21ST BIRTHDAY</div>
+    <h2>${type === "video" ? "A video for you ♡" : "A voice note for you ♡"}</h2>
+  `;
+
+  if(type === "video"){
+    html += `
+      <div class="media">
+        <video controls playsinline>
+          <source src="${file}">
+        </video>
+      </div>
+    `;
+  }else{
+    html += `
+      <div class="media">
+        <audio controls>
+          <source src="${file}">
+        </audio>
+      </div>
+    `;
+  }
+
+  document.getElementById("modalContent").innerHTML = html;
+  document.getElementById("modal").classList.add("show");
+}
+
+function lockedMessage(){
+
+  document.getElementById("modalContent").innerHTML = `
+    <div class="day">not yet ♡</div>
+    <h2>Patience, birthday boy.</h2>
+    <p>
+      This one unlocks on its special day.
+      Come back tomorrow. ♡
+    </p>
+  `;
+
+  document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("show");
+}
+
+document.getElementById("floating").innerHTML =
+  Array.from({length:25},(_,i)=>`
+    <span class="float"
+      style="
+        left:${Math.random()*96}%;
+        top:${Math.random()*96}%;
+        animation-delay:${Math.random()*6}s">
+      ${i%2 ? "✦" : "♡"}
+    </span>
+  `).join("");
+
+document.getElementById("heroSubtitle").textContent =
+  `${daysLeft()} days until ${SITE.boyfriendName} turns 21. ♡`;
+
+document.getElementById("finalLetter").innerHTML =
+  SITE.finalLetter.replace(/\n/g,"<br>");
+
+function updateFinalSection() {
+    const finalSection = document.getElementById("final");
+
+    if (new Date() >= birthdayDate()) {
+        finalSection.classList.add("unlocked");
+    } else {
+        finalSection.classList.remove("unlocked");
+    }
+}
+
+/* ==============================
+   BACKGROUND MUSIC
+   ============================== */
+
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+let musicWasPlaying = false;
+
+musicButton.addEventListener("click", async () => {
+    try {
+        if (backgroundMusic.paused) {
+            await backgroundMusic.play();
+            musicButton.textContent = "♫ Music: ON";
+        } else {
+            backgroundMusic.pause();
+            musicButton.textContent = "♫ Music: OFF";
+        }
+    } catch (error) {
+        console.error("Could not play background music:", error);
+        musicButton.textContent = "♫ Tap again";
+    }
+});
+
+document.addEventListener("play", (event) => {
+    const media = event.target;
+
+    if (
+        (media.tagName === "AUDIO" || media.tagName === "VIDEO") &&
+        media.id !== "backgroundMusic"
+    ) {
+        musicWasPlaying = !backgroundMusic.paused;
+
+        if (musicWasPlaying) {
+            backgroundMusic.pause();
+            musicButton.textContent = "♫ Music: PAUSED";
+        }
+    }
+}, true);
+
+document.addEventListener("ended", (event) => {
+    const media = event.target;
+
+    if (
+        (media.tagName === "AUDIO" || media.tagName === "VIDEO") &&
+        media.id !== "backgroundMusic"
+    ) {
+        if (musicWasPlaying) {
+            backgroundMusic.play().catch(() => {});
+            musicButton.textContent = "♫ Music: ON";
+            musicWasPlaying = false;
+        }
+    }
+}, true);
+
+updateCountdown();
+renderWishes();
+updateFinalSection();
+
+setInterval(updateCountdown, 1000);
+setInterval(renderWishes, 60000);
+setInterval(updateFinalSection, 1000);
+
+function launchConfetti(){
+
+  if(document.querySelector(".confetti .piece")) return;
+
+  for(let i=0;i<100;i++){
+
+    const p=document.createElement("i");
+
+    p.className="piece";
+
+    p.style.left=Math.random()*100+"%";
+    p.style.top="-20px";
+    p.style.background=
+      `hsl(${Math.random()*360},70%,80%)`;
+    p.style.animationDelay=Math.random()*1.5+"s";
+
+    document.getElementById("confetti").appendChild(p);
+  }
+}
+</script>
+
+</body>
+</html>
