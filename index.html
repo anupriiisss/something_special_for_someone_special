@@ -177,7 +177,7 @@ const SITE = {
   finalLetter: `
     If you're reading this on September 8, then you finally made it to 21. ♡
 
-    I hope this little website reminds you of something very simple:
+    I hope this little website reminds you everytime that
     you are soo, so loved and will forever be loved by me till the last breath 
     I take.
 
@@ -189,7 +189,7 @@ const SITE = {
 
   // Put your final birthday files inside the "media" folder.
   finalVideo: "media/birthday-video.mp4",
-  finalAudio: "media/birthday-audio.mp3"
+  finalAudio: "https://littlevoicenote.com/m/2305b331"
 };
 
 
@@ -606,28 +606,22 @@ function openFinalMedia(type){
     ? SITE.finalVideo
     : SITE.finalAudio;
 
+  // Birthday audio is a website, not an MP3
+  if(type === "audio"){
+    window.open(file, "_blank");
+    return;
+  }
+
   let html = `
     <div class="day">SEPTEMBER 8 · 21ST BIRTHDAY</div>
-    <h2>${type === "video" ? "A video for you ♡" : "A voice note for you ♡"}</h2>
-  `;
+    <h2>A video for you ♡</h2>
 
-  if(type === "video"){
-    html += `
-      <div class="media">
-        <video controls playsinline>
-          <source src="${file}">
-        </video>
-      </div>
-    `;
-  }else{
-    html += `
-      <div class="media">
-        <audio controls>
-          <source src="${file}">
-        </audio>
-      </div>
-    `;
-  }
+    <div class="media">
+      <video controls playsinline>
+        <source src="${file}">
+      </video>
+    </div>
+  `;
 
   document.getElementById("modalContent").innerHTML = html;
   document.getElementById("modal").classList.add("show");
